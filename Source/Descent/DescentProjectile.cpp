@@ -16,18 +16,18 @@ ADescentProjectile::ADescentProjectile()
 	CollisionComp->SetWalkableSlopeOverride(FWalkableSlopeOverride(WalkableSlope_Unwalkable, 0.f));
 	CollisionComp->CanCharacterStepUpOn = ECB_No;
 
-    // Remove projectile shadow for point light to move through the projectile object.
-    CollisionComp->SetCastShadow(false);
+  // Remove projectile shadow for point light to move through the projectile object.
+  CollisionComp->SetCastShadow(false);
 
 	// Set as root component
 	RootComponent = CollisionComp;
 
-    // Create a PointLight component, set the colour, the brightness (lumens) and attach it the the root component.
-    PointLightComp = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLightComp"));
-    FLinearColor fireRed(1, 0.4f, 0);
-    PointLightComp->SetLightColor(fireRed);
-    PointLightComp->SetIntensity(10000.0f);
-    PointLightComp->SetupAttachment(CollisionComp);
+  // Create a PointLight component, set the colour, the brightness (lumens) and attach it the the root component.
+  PointLightComp = CreateDefaultSubobject<UPointLightComponent>(TEXT("PointLightComp"));
+  FLinearColor fireRed(1, 0.4f, 0);
+  PointLightComp->SetLightColor(fireRed);
+  PointLightComp->SetIntensity(10000.0f);
+  PointLightComp->SetupAttachment(CollisionComp);
 
 
 	// Use a ProjectileMovementComponent to govern this projectile's movement
@@ -37,7 +37,7 @@ ADescentProjectile::ADescentProjectile()
 	ProjectileMovement->MaxSpeed = 3000.f;
 	ProjectileMovement->bRotationFollowsVelocity = true;
 	ProjectileMovement->bShouldBounce = true;
-    ProjectileMovement->ProjectileGravityScale = 0.0f;
+  ProjectileMovement->ProjectileGravityScale = 0.0f;
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 10.0f;
