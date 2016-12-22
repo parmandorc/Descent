@@ -17,6 +17,7 @@ Working steps:
 - Right click on the Descent.uproject file, and select Open with > Unreal Editor (4.14.10).
 - Make the changes you want.
 - Whenever you have made a significant change, and you made sure the game is working (by running it in the Unreal Editor), you can create a commit in the GitHub Desktop app. To do so, go to the Committed Changes tab at the top, write the name of the commit in the Summary field, and optionally give a longer description to the commit. Try giving signficant names, so other people can know what you worked on in the commit.
+- Remember to click the _Sync_ button to the right to send your new commit to GitHub. (Don't worry if this takes a lot of time, specially if you made changes to art asset files, since they can be quite big)
 
 Final steps:
 - Once you finished your work, it's time to merge your branch to master. To do so, while in your branch, click the _Pull Request_ button to the right, give a name and description, and click _Send Pull Request_.
