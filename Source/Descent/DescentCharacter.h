@@ -74,6 +74,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
 	uint32 bUsingMotionControllers : 1;
 
+  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+  bool controlEnabled;
+
 protected:
 	
 	/** Fires a projectile. */
