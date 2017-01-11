@@ -76,8 +76,10 @@ ADescentCharacter::ADescentCharacter()
 	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
 	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
 
+
+  controlEnabled = true;
 	// Uncomment the following line to turn motion controllers on by default:
-	//bUsingMotionControllers = true;
+	bUsingMotionControllers = true;
 }
 
 void ADescentCharacter::BeginPlay()
@@ -134,50 +136,52 @@ void ADescentCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 
 void ADescentCharacter::OnFire()
 {
-	// try and fire a projectile
-	if (ProjectileClass != NULL)
-	{
-		UWorld* const World = GetWorld();
-		if (World != NULL)
-		{
-			if (bUsingMotionControllers)
-			{
-				const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
-				const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
-				World->SpawnActor<ADescentProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
-			}
-			else
-			{
-				const FRotator SpawnRotation = GetControlRotation();
-				// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-				const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
+  if(controlEnabled){
+	  // try and fire a projectile
+	  if (ProjectileClass != NULL)
+	  {
+		  UWorld* const World = GetWorld();
+		  if (World != NULL)
+		  {
+			  if (bUsingMotionControllers)
+			  {
+				  const FRotator SpawnRotation = VR_MuzzleLocation->GetComponentRotation();
+				  const FVector SpawnLocation = VR_MuzzleLocation->GetComponentLocation();
+				  World->SpawnActor<ADescentProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+			  }
+			  else
+			  {
+				  const FRotator SpawnRotation = GetControlRotation();
+				  // MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+				  const FVector SpawnLocation = ((FP_MuzzleLocation != nullptr) ? FP_MuzzleLocation->GetComponentLocation() : GetActorLocation()) + SpawnRotation.RotateVector(GunOffset);
 
-				//Set Spawn Collision Handling Override
-				FActorSpawnParameters ActorSpawnParams;
-				ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+				  //Set Spawn Collision Handling Override
+				  FActorSpawnParameters ActorSpawnParams;
+				  ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
-				// spawn the projectile at the muzzle
-				World->SpawnActor<ADescentProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-			}
-		}
-	}
+				  // spawn the projectile at the muzzle
+				  World->SpawnActor<ADescentProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+			  }
+		  }
+	  }
 
-	// try and play the sound if specified
-	if (FireSound != NULL)
-	{
-		UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
-	}
+	  // try and play the sound if specified
+	  if (FireSound != NULL)
+	  {
+		  UGameplayStatics::PlaySoundAtLocation(this, FireSound, GetActorLocation());
+	  }
 
-	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
-	{
-		// Get the animation object for the arms mesh
-		UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
-	}
+	  // try and play a firing animation if specified
+	  if (FireAnimation != NULL)
+	  {
+		  // Get the animation object for the arms mesh
+		  UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
+		  if (AnimInstance != NULL)
+		  {
+			  AnimInstance->Montage_Play(FireAnimation, 1.f);
+		  }
+	  }
+  }
 }
 
 void ADescentCharacter::OnResetVR()
@@ -250,32 +254,40 @@ void ADescentCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const FVec
 
 void ADescentCharacter::MoveForward(float Value)
 {
-	if (Value != 0.0f)
-	{
-		// add movement in that direction
-		AddMovementInput(GetActorForwardVector(), Value);
-	}
+  if(controlEnabled){
+	  if (Value != 0.0f)
+	  {
+		  // add movement in that direction
+		  AddMovementInput(GetActorForwardVector(), Value);
+	  }
+  }
 }
 
 void ADescentCharacter::MoveRight(float Value)
 {
-	if (Value != 0.0f)
-	{
-		// add movement in that direction
-		AddMovementInput(GetActorRightVector(), Value);
-	}
+  if (controlEnabled) {
+    if (Value != 0.0f)
+    {
+      // add movement in that direction
+      AddMovementInput(GetActorRightVector(), Value);
+    }
+  }
 }
 
 void ADescentCharacter::TurnAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+  if (controlEnabled) {
+    // calculate delta for this frame from the rate information
+    AddControllerYawInput(Rate * BaseTurnRate * GetWorld()->GetDeltaSeconds());
+  }
 }
 
 void ADescentCharacter::LookUpAtRate(float Rate)
 {
-	// calculate delta for this frame from the rate information
-	AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+  if (controlEnabled) {
+    // calculate delta for this frame from the rate information
+    AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+  }
 }
 
 bool ADescentCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInputComponent)
