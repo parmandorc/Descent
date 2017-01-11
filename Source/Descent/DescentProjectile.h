@@ -11,6 +11,10 @@ class ADescentProjectile : public AActor
 	/** Sphere collision component */
 	UPROPERTY(VisibleDefaultsOnly, Category=Projectile)
 	class USphereComponent* CollisionComp;
+    
+    UPROPERTY(EditAnywhere)
+    class UPointLightComponent* PointLightComp;
+
 
 	/** Projectile movement component */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Movement, meta = (AllowPrivateAccess = "true"))
