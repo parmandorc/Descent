@@ -67,3 +67,6 @@ DerivedDataCache/*
 #XCode
 *.xcworkspace
 *.db
+
+#Lighting builds
+Content/FirstPersonCPP/Maps/*.uasset
