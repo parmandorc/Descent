@@ -1,5 +1,7 @@
 # Descent
 
+See [video demo](https://youtu.be/H7Oh1xJ3M38)
+
 ## How to download the project and edit it in Unreal ##
 Pre-requirements:
 - Unreal (4.14.0 version)
