@@ -11,6 +11,9 @@ It was mainly based on doing a LineTraceByChannel from the player camera positio
 It was also the start for the Pick up to Inventory feature.
 How to throw rays and evaluate the hit result has been the main outcome from this feature.
 
+![alt text](./blueprints/pick-up-drop.png?raw=true)
+![alt text](./blueprints/throw%20item.png?raw=true)
+
 ##Blocking door trap
 
 This trap was intended to block a door by falling rocks from the ceiling.
@@ -23,6 +26,9 @@ For example, moving a group of static meshes(without physics) could have been mu
 
 All in all, how to spawn dynamic actors and using the event dispatcher has been the main outcome from this feature.
 
+![alt text](./blueprints/triggerBlockDoor.png?raw=true)
+![alt text](./blueprints/spawner.png?raw=true)
+
 ##Skulls puzzle
 
 This puzzle consisted on collecting skulls from the environment with the purpose to place them in a balance. Each time an skull was placed, a door was opened slightly.
@@ -30,6 +36,11 @@ This puzzle consisted on collecting skulls from the environment with the purpose
 The puzzle was set up editable so artists could add the number of skulls needed. The skulls were using the inventory item template(developed by other programmer) so they could be kept in the inventory.
 
 Whenever an skull was colliding with a box placed in the balance, the actual skull was destroyed and an invisible static one that was already placed on the balance was made visible.
+
+![alt text](./blueprints/skulls1.png?raw=true)
+![alt text](./blueprints/skulls2.png?raw=true)
+![alt text](./blueprints/skulls3.png?raw=true)
+![alt text](./blueprints/skulls4.png?raw=true)
 
 ##Reviewed features
 
