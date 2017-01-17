@@ -37,9 +37,16 @@ The puzzle was set up editable so artists could add the number of skulls needed.
 
 Whenever an skull was colliding with a box placed in the balance, the actual skull was destroyed and an invisible static one that was already placed on the balance was made visible.
 
+- Calculate remaining skulls from editable array and the amount we wish to open the door each time we place an skull
 ![alt text](./blueprints/skulls1.png?raw=true)
+
+- Open the door slightly when we place an skull
 ![alt text](./blueprints/skulls2.png?raw=true)
+
+- "Snap" skull function for destroying the current skull and make visible the static one
 ![alt text](./blueprints/skulls3.png?raw=true)
+
+- SetStaticSkullHidden function
 ![alt text](./blueprints/skulls4.png?raw=true)
 
 ##Reviewed features
