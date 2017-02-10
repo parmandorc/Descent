@@ -1,0 +1,31 @@
+Dem De(s)cent Notes
+
+• better pathfinding for eye - so it's not stuck on simple things and does not come back at pyramid's entrance
+• the texture by Ra's shrine - the stairs are not visible from far away, also texture looks like it's just widened to cover the sides of object
+• jumping glitch - standing on items and jumping can make player fly away. Like really far away
+• some texture patches - walls and floors need a better patching with textures, since its possible to see the blue space between them (see the movies)
+• optimize the text for notes - it lazy loads and it may make people not wanting to read it
+• better explanation of the riddle - while pictures are cool, and the suggestive looking picture of wall looks like hint, the riddle itself is too hard to guess without proper explanation. It'd be nicer if on one note there would be a slightly drawn that tic-tac-toe grid with one picture inside, while rest stays as is. Or as suggested earlier - the easy code - https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Pigpen.png/180px-Pigpen.png instead of letters - the pictures (the 1st upper left picture) - http://ekladata.com/4GUESukVY7-I6Sbp8e7orA20cPU.png
+• fix of mouse at the riddle - HOLY SHIT, please. It was a DAMN problem to everytime click on picture, go out of riddle, open up the inventory, left click, mouse pops up, go our of inventory, go to picture, select another thing - Rinse and Repeat EVERY TIME
+• some of things are not visible - while it is not like to make "Hey there's an item here" with marker, but make them a wee bit more out. Notes on light backgrounds, Ra's feather is a bit to small, just small things - perhaps while running over an note, could be there a sound of stepped paper? Something, a clue
+• overall gameplay is good, needs some polishing :D the ability to sprint would be great, especially going tho and fro from that Ra's shrine to the pyramid...
+• explaining game's mechanics is important. You need to explain how to interact with the world in first 5 minutes of game, because it leaves gamers confused. Perhaps, in the beginning, could be there like crashed back of the cart (dunno), where player learns, what are basic keyboard inputs. You wake up, next to the note - it is visible, so you know what to look for, and how to read it. Then by clicking note, you know that you have inventory... and so on. I understand that you want to make players intrigued, and not lead them by hand - but not giving an explanation at all is more confusing. (Like old school demos for PSX games - even those had a screen with controls, and usualy player was thrown into some deep game location - vide Tomb Raider's demos are the best example)
+• (cont.) see how's the Amnesia first minutes are explained
+• thin walls - it's Egypt, make dem walls thicc, not like papers, it's not Japan! There are no earthquakes xD
+• fireballs have a little knockback to the left. It's on purpose?
+• more sound effects - like where the rocks fall - and a wee bit shake for more feedback
+
+But overall it's a neat neat game and I'm lookin' forward more demos to test :D Keep up the great work, mates!
+
+XXXXXX TESTER 2 XXXXXXXXXXXX 
+
+* I loved interior of Pyramid - golden walls with obsidian blood ceiling and corridors made very unique atmosphere
+* Ra and Anubis models ( dog and human ) were made very elegant, they gave game deepness 
+* Trees didn't have collision and stones that fall and block way had huge gaps that in reality would be easily passed
+* Music was brilliant, building asmosphere and kept tension. Although Eye coudln't really do anything to me, with this music i was feeling uneased
+* Eye itself in the beginning made me habitual of it's exact area where does it move. Later it suprised me and changed the path. Possibly if i could die i would be more scared. 
+* I gave feedback to Oliwia regarding tree ( basically he said some trees were kindof 'in' the temple outside and went through the wall ) 
+* Textures were on a really good level 
+* I Didn't notice the 9 puzzle cubes until long time. 
+* Once i found the riddle i was not sure how to move them. Coursor was disappearing often. After opening door i solved the rest of riddles myself because those were well designed. I loved them and the ideas of those riddles although i think some people might not notice the feather. 
+- In general, game made a great impression on me by very pretty designed map, interesting riddles and very atmospheric music. I would love to play full version of game , but it would be best if the eye was better coded and more dangerous. If there is more danger,there will be even more rewarding.
